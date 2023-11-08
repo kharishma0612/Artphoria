@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+
+.profile-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Center the camera icon within .profile-picture */
+.profile-picture {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #ccc; /* Default background color (ash grey) */
+    display: inline-block;
+}
+
+.camera-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensure it's above the profile image */
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.update-button-container {
+    text-align: center;
+    margin-top: 10px; /* Adjust the margin-top as needed */
+}
+
+/* Style the "Update" button */
+.update-button {
+    background-color: #BB8FCE; /* Lilac background color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    text-align: center;
+    margin-top: 10px;
+    transition: background-color 0.3s; /* Add a smooth transition on hover */
+}
+
+/* Change background color on hover */
+.update-button:hover {
+    background-color: #9955bb; /* Lighter lilac on hover */
+}
+
+
+.profile-image-label {
+    cursor: pointer;
+}
+
+.profile-section {
+    margin-top: 20px;
+}
+
+.profile-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.email,
+.phone {
+    margin: 10px 0;
+}

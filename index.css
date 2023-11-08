@@ -1,0 +1,223 @@
+.body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    
+    padding: 10px;
+}
+
+.logo img {
+    width: 50px; 
+}
+
+.brand-name h1 {
+    font-size: 24px; 
+    margin-left: 10px; 
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+
+
+
+  
+.login-button {
+    position: absolute;
+    top: 10px;
+    right: 120px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color:#fff ;
+    text-decoration: none;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+}
+.signin-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #000000;
+    border: none;
+    cursor:pointer;
+}
+.slideshow-container {
+    max-width: 900%;
+    position: relative;
+    margin: auto;
+    margin-bottom: 60px;
+}
+
+.slide {
+    display:center;
+}
+
+.slide img {
+    width: 100%
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 0;
+    }
+    20%, 80% {
+        opacity: 1;
+    }
+}
+.k{
+   text-decoration:none;
+}
+.signin-button{
+cursor:pointer;
+}
+
+
+
+
+.sell-section {
+    background-color: #EAC696; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.info {
+    flex: 1;
+    padding: 20px;
+    font-family: "Lucida Console", monospace;
+    color: #765827;
+}
+
+.info h3 {
+    font-size: 60px;
+    font-family: 'Lora', serif;
+}
+
+.info p {
+    font-size: 30px;
+    font-family: 'Lora', serif;
+    
+}
+
+.image {
+    flex: 1;
+    text-align: center;
+}
+
+.image img {
+    max-width: 50%;
+    height: auto;
+}
+
+
+
+.buy-section {
+    background-color: #749BC2; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.image-container {
+    flex: 1;
+        position: relative;
+        width: 300px;
+    left: 60px;
+    }
+
+    
+    .image1{
+    width: 20%;
+    height: auto;
+    left: 100px;
+}
+    .image2 {
+        position: absolute;
+        width: 20%;
+        height: auto; 
+        top: 80px; 
+        left: 160px; 
+    
+    }
+.image3{
+    position: absolute;
+    width: 20%;
+    height:auto;
+    top: 20px;
+    left: 320px;
+}
+
+    .image1:hover {
+        opacity: 1; 
+    }
+
+.info-buy {
+    flex: 1;
+    padding: 20px;
+    color: #F6F4EB;
+}
+
+.info-buy h3 {
+    font-size: 60px;
+    
+    font-family: 'Lora', serif;
+
+}
+
+.info-buy p {
+    font-size: 30px;
+    font-family: 'Lora', serif;
+    
+}
+
+
+.learn-section {
+    background-color: #93B1A6; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.info-learn {
+    flex: 1;
+    padding: 20px;
+    font-family: "Lucida Console", monospace;
+    color: #183D3D;
+}
+
+.info-learn h3 {
+    font-size: 60px;
+    font-family: 'Lora', serif;
+}
+
+.info-learn p {
+    font-size: 30px;
+    font-family: 'Lora', serif;
+    
+}
+
+.image-learn {
+    flex: 1;
+    text-align: center;
+}
+
+.image-learn img {
+    max-width: 100%;
+    height: auto;
+}

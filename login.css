@@ -1,0 +1,122 @@
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 70vh;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.a {
+    background-color: #EBDEF0;
+    max-width: 400px;
+    padding: 10px;
+}
+
+.b {
+    background-color: #EBDEF0;
+    width: 348px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.a .gap1 {
+    margin-top: 5px;
+}
+
+.a .gap2 {
+    margin-top: 20px;
+}
+
+.fb-link {
+    color: #385185;
+    font-weight: 600;
+}
+
+.fp-link {
+    color: rgb(0, 55, 107);
+}
+
+.a input[type="submit"] {
+    width: 320px;
+    height: 27px;
+    background-color: #BB8FCE;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.a input[type="submit"]:hover {
+    background-color: #3578E5;
+}
+
+.a input[type="text"],
+.a input[type="password"] {
+    width: 300px;
+    height: 20px;
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    background-color: #D8BFD8;
+}
+
+.a {
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    padding: 30px;
+    margin-bottom: 10px;
+}
+
+.b {
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+.a .divider {
+    position: relative;
+    margin-top: 5px;
+}
+
+.a .divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #D8BFD8;
+    transform: translateY(-50%);
+}
+
+.a .divider span {
+    position: relative;
+    background-color: #D8BFD8;
+    padding: 0 10px;
+    color: #808080;
+    font-size: 13px;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+.a button[type="submit"] {
+    width: 320px;
+    height: 27px;
+    background-color: #BB8FCE;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.a button[type="submit"]:hover {
+    background-color: #3578E5;
+}
+
+

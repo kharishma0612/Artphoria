@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+.video-container {
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.sketch-videos,
+.paint-videos,
+.diy-videos {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.sketch-videos.inactive,
+.paint-videos.inactive,
+.diy-videos.inactive {
+    opacity: 0;
+}
+.video-container iframe {
+    width: 380px;
+    height: 380px;
+}
+
+.menu li a {
+    color: white; 
+    text-decoration: none; 
+    padding: 5px; 
+    font-size:20px;
+}
+
+.menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px; 
+}
+.back-button {
+    background-color: #7579ab;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
