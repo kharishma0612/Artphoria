@@ -1,13 +1,11 @@
 <?php
 header("Content-Type: application/json");
 
-// Define your database connection details.
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPass = "";
 $dbName = "trial";
 
-// Attempt to connect to the database.
 $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 
 if ($conn->connect_error) {

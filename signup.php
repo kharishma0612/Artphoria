@@ -15,21 +15,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cpassword = $_POST['cpassword'];
     $email = $_POST['email'];
     $phno = $_POST['phno'];
-    $sucessMessage = '';
 
     if ($password === $cpassword) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $insertQuery = "INSERT INTO users_table (username, password, email, phone_number) 
                         VALUES ('$username', '$hashedPassword', '$email', '$phno')";
         if ($db->query($insertQuery) === TRUE) {
-            $successMessage = "you can now login";
-            echo "Registration successful. You can now login.";
+            echo "Registration successful.";
+            echo "<script>
+                    alert('Registration successful. You can now login.');
+                    window.location.href = 'login.php';
+                  </script>";
+            exit();
         } else {
             echo "Error: " . $insertQuery . "<br>" . $db->error;
         }
     }
     $db->close();
 }
+session_destroy();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,13 +63,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         ?>
         <form action="signup.php" method="POST">
+            <p style="color: red;"><?php echo $errorMessage; ?></p>
             <input type="text" id="username" name="username" placeholder = "Username" required><br>
             <div class="gap1"></div>
             <input type="password" id="password" name="password" placeholder = "Password" required><br>
             <div class="gap1"></div>
             <input type ="password" id ="cpassword" name="cpassword" placeholder="Confirm Password" required>
             <div class = "gap1"></div>
-            <p style="color: red;"><?php echo $errorMessage; ?></p>
             <input type="email" id="email" name="email" placeholder = "Email" required><br>
             <div class="gap1"></div>
             <input type="tel" id="phno" name="phno" placeholder = "Phone Number" required><br>
@@ -77,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div> 
     <div class="b">
-        Already have an account? <a style="font-weight:600; color:rgb(0,149,246)" href="login.html" class = "no-underline" >Login</a>
+        Already have an account? <a style="font-weight:600; color:rgb(0,149,246)" href="login.php" class = "no-underline" >Login</a>
     </div>
 </body>
 </html>

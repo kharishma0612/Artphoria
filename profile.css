@@ -1,19 +1,22 @@
+
 body {
     font-family: Arial, sans-serif;
+    background-image: url('uploads/Background.jpeg'); 
 }
 
 .box {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     width: 400px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    background-color: #EBDEF0;
+    border: 1px solid white; 
     border-radius: 10px;
 }
-
 
 .profile-container {
     max-width: 400px;
@@ -21,16 +24,14 @@ body {
     text-align: center;
 }
 
-/* Center the camera icon within .profile-picture */
 .profile-picture {
-    position: relative;
     width: 150px;
     height: 150px;
     margin: 20px auto;
     border-radius: 50%;
     overflow: hidden;
-    background-color: #ccc; /* Default background color (ash grey) */
-    display: inline-block;
+    background-color: #ccc; 
+    position: relative;
 }
 
 .camera-icon {
@@ -38,7 +39,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1; /* Ensure it's above the profile image */
+    z-index: 1; 
 }
 
 .profile-picture img {
@@ -49,28 +50,45 @@ body {
 
 .update-button-container {
     text-align: center;
-    margin-top: 10px; /* Adjust the margin-top as needed */
+    
 }
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 8px 8px;
+    z-index: 1000;
+  }
 
-/* Style the "Update" button */
+  .header-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo img {
+    border-radius: 5%;
+    margin: 10px 10px;
+    width: 200px;
+  }
 .update-button {
-    background-color: #BB8FCE; /* Lilac background color */
+    font-size:10px;
+    background-color: #BB8FCE; 
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 5px;
-    text-align: center;
+    margin-left: 100px;
     margin-top: 10px;
-    transition: background-color 0.3s; /* Add a smooth transition on hover */
+    transition: background-color 0.3s;
 }
 
-/* Change background color on hover */
 .update-button:hover {
-    background-color: #9955bb; /* Lighter lilac on hover */
+    background-color: #9955bb;
+    align-items: center;
 }
-
 
 .profile-image-label {
     cursor: pointer;
@@ -92,6 +110,6 @@ h2 {
 }
 
 .email,
-.phone {
+.phone .adress{
     margin: 10px 0;
 }

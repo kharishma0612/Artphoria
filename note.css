@@ -39,11 +39,11 @@ textarea {
     margin-right: 10px;
 }
 
-canvas {
+ .input-image {
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
+} 
 
 .buttons {
     margin-top: 10px;

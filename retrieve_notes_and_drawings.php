@@ -1,13 +1,9 @@
 <?php
 header("Content-Type: application/json");
-
-// Define your database connection details.
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPass = "";
 $dbName = "trial";
-
-// Attempt to connect to the database.
 $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 
 if ($conn->connect_error) {
@@ -22,8 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($data) {
         if (isset($data["user_id"]) && isset($data["action"]) && $data["action"] === "retrieve") {
             $userID = $data["user_id"];
-            
-            // Retrieve notes from the database for the specific user.
             $notes = [];
             $notesResult = $conn->prepare("SELECT content FROM notes WHERE user_id = ?");
             $notesResult->bind_param("i", $userID);
@@ -33,8 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             while ($notesResult->fetch()) {
                 $notes[] = ["content" => $noteContent];
             }
-
-            // Retrieve drawings from the database for the specific user.
             $drawings = [];
             $drawingsResult = $conn->prepare("SELECT image_data FROM drawings WHERE user_id = ?");
             $drawingsResult->bind_param("i", $userID);

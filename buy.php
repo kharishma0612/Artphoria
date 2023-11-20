@@ -134,14 +134,18 @@ margin-bottom:100px;
     <div class="header">
         <div class="header-content">
             <div class="logo">
+            <a href="main.php">
                 <img src="uploads/logoname.png" alt="Your Logo">
+            </a>
             </div>
             <div class="search-box">
                 <input type="search" id = "searchInput" placeholder="Search">
                 <button id = "searchButton"><i class="fa fa-search"></i></button>
             </div>
             <div class="cart">
-                <i class="fa fa-shopping-cart"></i>
+            <a href="cart.php">
+                <i class="fa fa-shopping-cart"></i> 
+            </a>
             </div>
         </div>
     </div>
@@ -150,6 +154,7 @@ margin-bottom:100px;
             <div class="col-md-10">
                 <div class="row justify-content-center">
                     <?php
+                    session_start();
                     $db_host = 'localhost';
                     $db_user = 'root';
                     $db_pass = '';
@@ -167,8 +172,10 @@ margin-bottom:100px;
                         $artwork_title = $row['artwork_title'];
                         $artwork_price = $row['artwork_price'];
                         $contact_info = $row['contact_info'];
+                        $artwork_id = $row['id'];
                         $artwork = '' . $artwork_image;
                         echo "<div class='col-md-3 mb-4'>
+                        <a href='artwork_details.php?artwork_id=$artwork_id'>
                             <div class='card' style='background-color: #fff;'>
                                 <div class='card-body' style='text-align: center;'>
                                     <div class='card-img'>
@@ -178,11 +185,56 @@ margin-bottom:100px;
                                     <p class='card-text'>$description</p>
                                     <p class='card-text'>Price : $artwork_price</p>
                                     <p class='card-text'>Artist : $artist_name</p>
-                                    <a href='#' class='btn btn-info' style='margin-bottom: 10px;'>Buy now</a>
-                                    <a href='#' class='btn btn-info' style='margin-bottom: 10px;'>Add to cart</a><br>
+                        
+                                    <form method='post' action='buy.php'>
+                                        <input type='hidden' name='artwork_id' value='$artwork_id'>
+                                        <input type='hidden' name='artwork_title' value='$artwork_title'>
+                                        <input type='hidden' name='artwork_image' value='$artwork_image'>
+                                        <input type='hidden' name='artwork_description' value='$description'>
+                                        <input type='hidden' name='artist_name' value='$artist_name'>
+                                        <input type='hidden' name='artwork_price' value='$artwork_price'>
+                                        <button type='submit' name='add_to_cart' class='btn btn-info' style='margin-bottom: 10px;'>Add to Cart</button>
+                                        <button type='submit' name='buy_now' class='btn btn-info' style='margin-bottom: 10px;'>Buy Now</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>";
+                    }
+                    if (isset($_POST['add_to_cart'])) {
+                        $artwork_id = $_POST['artwork_id'];
+                        $user_id = $_SESSION['user_id'];
+                        $check_query = "SELECT * from sample_cart where artwork_id = $artwork_id and user_id = $user_id";
+                        $check_query_result = $conn->query($check_query);
+                        if($check_query_result->num_rows === 0){
+                            $insert_query = "INSERT INTO sample_cart (artwork_id, user_id) 
+                                    VALUES ('$artwork_id', '$user_id')";
+                            if($conn->query($insert_query)){
+                                echo "<script>
+                                alert('Added to cart successfully!');
+                                window.location.href = 'buy.php';
+                                </script>";
+                            }else{
+                                die('Error: ' . mysqli_error());
+                            }
+                        }
+                    }
+                    if (isset($_POST['buy_now'])) {
+                        $artwork_id = $_POST['artwork_id'];
+                        $user_id = $_SESSION['user_id'];
+                        $check_query = "SELECT * from buy where artwork_id = $artwork_id and user_id = $user_id";
+                        $check_query_result = $conn->query($check_query);
+                        if($check_query_result->num_rows === 0){
+                            $insert_query = "INSERT INTO buy (artwork_id, user_id) 
+                                    VALUES ('$artwork_id', '$user_id')";
+                            if($conn->query($insert_query)){
+                                echo "<script>
+                                alert('redirecting to payment page');
+                                window.location.href = 'index.php';
+                                </script>";
+                            }else{
+                                die('Error: ' . mysqli_error());
+                            }
+                        }
                     }
                     ?>
                 </div>
@@ -191,21 +243,22 @@ margin-bottom:100px;
     </div>
 <script>
     document.getElementById('searchButton').addEventListener('click', function() {
-        const searchInput = document.getElementById('searchInput').value.toLowerCase();
-        const cardTexts = document.querySelectorAll('.card-text');
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const cardTexts = document.querySelectorAll('.card-text');
 
-        for (let index = 0; index < cardTexts.length; index++) {
-            const cardText = cardTexts[index];
-            const card = cardText.closest('.card');
+    for (let index = 0; index < cardTexts.length; index++) {
+        const cardText = cardTexts[index];
+        const card = cardText.closest('.card');
+        const cardContent = card.textContent.toLowerCase();
 
-            if (cardText.textContent.toLowerCase().includes(searchInput)) {
-                card.style.border = '2px solid #007BFF';
-                break;
-            } else {
-                card.style.border = 'none';
-            }
+        if (cardContent.includes(searchInput)) {
+            card.style.border = '2px solid #007BFF';
+        } else {
+            card.style.border = 'none';
         }
-    });
+    }
+});
+
 </script>
 </body>
 </html>

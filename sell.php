@@ -20,7 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO artwork_entries (artist_name,artwork_title, artwork_price, description, contact_info, artwork_image) VALUES ('$artistName','$artworkTitle', '$artworkPrice','$description', '$contactInfo', '$targetFile')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "Form submitted successfully!";
+        echo "<script>
+                    alert('Form submitted successfully!');
+                    window.location.href = 'main.php';
+                  </script>";
+            exit();
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
